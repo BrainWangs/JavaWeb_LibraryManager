@@ -10,6 +10,8 @@
       <root url="jar://$PROJECT_DIR$/lib/javax.annotation.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/javax.servlet.jsp.jstl.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/javax.ejb.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.0.8-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mysql-connector-j-9.4.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
