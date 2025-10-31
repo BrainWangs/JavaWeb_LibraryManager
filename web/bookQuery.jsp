@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.sql.*, java.util.*, main.DAO1.test" %>
+<%@ page import="java.sql.*, java.util.*" %>
 <%@ include file="header.jsp" %>
 
 <%
