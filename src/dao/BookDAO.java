@@ -1,7 +1,7 @@
 package dao;
 
 
-import org.junit.Test;
+
 import vo.Book;
 import java.sql.*;
 import java.util.ArrayList;
@@ -13,24 +13,24 @@ import java.util.List;
 
 public class BookDAO {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/sql_demo?useSSL=false&serverTimezone=UTC";
-    private static final String USER = "root";
-    private static final String PASSWORD = "123456";
+    String url = "jdbc:mysql://localhost:3306/sql_demo?useSSL=false&serverTimezone=UTC";
+    String username = "root";
+    String password = "123456";
 
-    static {
+    public BookDAO() {
         try {
-            // 加载JDBC驱动
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
+
     // 查询所有图书
     public List<Book> findAll() {
         List<Book> list = new ArrayList<>();
         String sql = "SELECT * FROM T_BOOK ORDER BY BOOKPRICE DESC";
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+        try (Connection conn = DriverManager.getConnection(url, username, password);
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
@@ -53,7 +53,7 @@ public class BookDAO {
     public List<Book> search(String keyword) {
         List<Book> list = new ArrayList<>();
         String sql = "SELECT * FROM T_BOOK WHERE BOOKNAME LIKE ? ORDER BY BOOKPRICE DESC";
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+        try (Connection conn = DriverManager.getConnection(url, username, password);
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, "%" + keyword + "%");
             ResultSet rs = ps.executeQuery();
@@ -77,7 +77,7 @@ public class BookDAO {
     // 按ID查询
     public Book findById(int id) {
         String sql = "SELECT * FROM T_BOOK WHERE BOOK_ID=?";
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+        try (Connection conn = DriverManager.getConnection(url, username, password);
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -99,7 +99,7 @@ public class BookDAO {
     // 新增
     public boolean insert(Book b) {
         String sql = "INSERT INTO T_BOOK (BOOKNAME, BOOKPRICE, AUTHOR, PUBLISHER) VALUES (?, ?, ?, ?)";
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+        try (Connection conn = DriverManager.getConnection(url, username, password);
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, b.getBookName());
             ps.setDouble(2, b.getBookPrice());
@@ -115,7 +115,7 @@ public class BookDAO {
     // 修改
     public boolean update(Book b) {
         String sql = "UPDATE T_BOOK SET BOOKNAME=?, BOOKPRICE=?, AUTHOR=?, PUBLISHER=? WHERE BOOK_ID=?";
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+        try (Connection conn = DriverManager.getConnection(url, username, password);
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, b.getBookName());
             ps.setDouble(2, b.getBookPrice());
@@ -132,7 +132,7 @@ public class BookDAO {
     // 删除
     public boolean delete(int id) {
         String sql = "DELETE FROM T_BOOK WHERE BOOK_ID=?";
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+        try (Connection conn = DriverManager.getConnection(url, username, password);
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id);
             return ps.executeUpdate() > 0;
