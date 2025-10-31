@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="dao.BookDAO, vo.Book, java.util.*" %>
+<%@ page import="dao.*, vo.*, java.util.*" %>
 
 <%@ include file="header.jsp" %>
 

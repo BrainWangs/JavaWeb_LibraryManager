@@ -39,6 +39,6 @@
 
     <!-- 默认首页 -->
     <welcome-file-list>
-        <welcome-file>addBook.jsp</welcome-file>
+        <welcome-file>bookQuery.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
