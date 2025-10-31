@@ -32,6 +32,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="mysql-connector-java-5.0.8-bin" level="project" />
+    <orderEntry type="library" name="mysql-connector-j-8.1.0" level="project" />
   </component>
 </module>
