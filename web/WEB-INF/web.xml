@@ -10,7 +10,7 @@
     <!-- BookAddServlet -->
     <servlet>
         <servlet-name>BookAddServlet</servlet-name>
-        <servlet-class>main.servlet.BookAddServlet</servlet-class>
+        <servlet-class>servlet.BookAddServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>BookAddServlet</servlet-name>
@@ -20,7 +20,7 @@
     <!-- BookEditServlet -->
     <servlet>
         <servlet-name>BookEditServlet</servlet-name>
-        <servlet-class>main.servlet.BookEditServlet</servlet-class>
+        <servlet-class>servlet.BookEditServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>BookEditServlet</servlet-name>
@@ -30,7 +30,7 @@
     <!-- BookDeleteServlet -->
     <servlet>
         <servlet-name>BookDeleteServlet</servlet-name>
-        <servlet-class>main.servlet.BookDeleteServlet</servlet-class>
+        <servlet-class>servlet.BookDeleteServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>BookDeleteServlet</servlet-name>
@@ -39,6 +39,6 @@
 
     <!-- 默认首页 -->
     <welcome-file-list>
-        <welcome-file>bookQuery.jsp</welcome-file>
+        <welcome-file>addBook.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

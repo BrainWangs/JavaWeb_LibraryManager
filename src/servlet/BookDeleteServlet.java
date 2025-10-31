@@ -1,6 +1,6 @@
-package main.servlet;
+package servlet;
 
-import main.dao.BookDAO;
+import dao.BookDAO;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

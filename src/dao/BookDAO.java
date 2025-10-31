@@ -1,7 +1,8 @@
-package main.dao;
+package dao;
 
 
-import main.vo.Book;
+import org.junit.Test;
+import vo.Book;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 /**
  * 使用DAO设计模式封装对数据库的直接操作
  */
+
 public class BookDAO {
 
     private static final String URL = "jdbc:mysql://localhost:3306/sql_demo?useSSL=false&serverTimezone=UTC";

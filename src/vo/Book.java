@@ -1,4 +1,4 @@
-package main.vo;
+package vo;
 
 public class Book {
     private int bookId;
