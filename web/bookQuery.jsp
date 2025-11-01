@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="dao.*, vo.*, java.util.*" %>
 
-<%@ include file="header.jsp" %>
+<%@ include file="Header.jsp" %>
 
 <%
     String keyword = request.getParameter("keyword");
@@ -27,7 +27,7 @@
                    placeholder="输入书名关键字"
                    style="padding:0.5rem;width:50%;border:1px solid #ccc;border-radius:5px;">
             <button type="submit" class="btn">搜索</button>
-            <a href="addBook.jsp" class="btn" style="background:#27ae60;">添加图书</a>
+            <a href="AddBook.jsp" class="btn" style="background:#27ae60;">添加图书</a>
         </form>
 
         <% if (hasSearched) { %>
@@ -56,7 +56,7 @@
                     <td><%= b.getAuthor() %></td>
                     <td><%= b.getPublisher() %></td>
                     <td>
-                        <a href="editBook.jsp?bookId=<%= b.getBookId() %>" class="btn">修改</a>
+                        <a href="EditBook.jsp?bookId=<%= b.getBookId() %>" class="btn">修改</a>
                         <a href="BookDeleteServlet?bookId=<%= b.getBookId() %>"
                            class="btn" style="background:#e74c3c;"
                            onclick="return confirm('确认删除该图书吗？');">删除</a>
@@ -75,4 +75,4 @@
     </div>
 </main>
 
-<%@ include file="footer.jsp" %>
+<%@ include file="Footer.jsp" %>
