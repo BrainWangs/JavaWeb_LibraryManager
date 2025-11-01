@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="dao.*, vo.*" %>
-<%@ include file="header.jsp" %>
+<%@ include file="Header.jsp" %>
 
 <%
     String idStr = request.getParameter("bookId");
@@ -41,4 +41,4 @@
     </div>
 </main>
 
-<%@ include file="footer.jsp" %>
+<%@ include file="Footer.jsp" %>

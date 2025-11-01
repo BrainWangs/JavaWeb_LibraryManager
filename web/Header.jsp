@@ -62,7 +62,7 @@
         <nav class="nav">
             <ul>
                 <li><a href="bookQuery.jsp">首页</a></li>
-                <li><a href="addBook.jsp">添加图书</a></li>
+                <li><a href="AddBook.jsp">添加图书</a></li>
                 <li><a href="#">热门图书</a></li>
                 <li><a href="#">关于我们</a></li>
             </ul>
