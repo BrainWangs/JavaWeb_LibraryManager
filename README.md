@@ -1,3 +1,8 @@
+# 学生管理系统 页面展示
+![首页](https://pic1.imgdb.cn/item/69109eb33203f7be00eba660.png)
+
+
+
 # 使用IDEA部署JavaWeb项目
 
 参考教程 [https://www.bilibili.com/video/BV1yg411a7GN]
