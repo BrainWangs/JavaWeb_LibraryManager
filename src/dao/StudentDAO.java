@@ -1,8 +1,6 @@
 package dao;
 
-
-
-import vo.Book;
+import vo.Student;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,13 +9,13 @@ import java.util.List;
  * 使用DAO设计模式封装对数据库的直接操作
  */
 
-public class BookDAO {
+public class StudentDAO {
 
     String url = "jdbc:mysql://localhost:3306/sql_demo?useSSL=false&serverTimezone=UTC";
     String username = "root";
     String password = "123456";
 
-    public BookDAO() {
+    public StudentDAO() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -25,23 +23,20 @@ public class BookDAO {
         }
     }
 
-
-    // 查询所有图书
-    public List<Book> findAll() {
-        List<Book> list = new ArrayList<>();
-        String sql = "SELECT * FROM T_BOOK ORDER BY BOOKPRICE DESC";
+    // 查询所有学生
+    public List<Student> findAll() {
+        List<Student> list = new ArrayList<>();
+        String sql = "SELECT * FROM T_STUDENT ORDER BY stuNo";
         try (Connection conn = DriverManager.getConnection(url, username, password);
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
-                Book b = new Book(
-                        rs.getInt("BOOK_ID"),
-                        rs.getString("BOOKNAME"),
-                        rs.getDouble("BOOKPRICE"),
-                        rs.getString("AUTHOR"),
-                        rs.getString("PUBLISHER")
+                Student s = new Student(
+                        rs.getString("stuNo"),
+                        rs.getString("stuName"),
+                        rs.getString("stuSex")
                 );
-                list.add(b);
+                list.add(s);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -50,22 +45,20 @@ public class BookDAO {
     }
 
     // 模糊查询
-    public List<Book> search(String keyword) {
-        List<Book> list = new ArrayList<>();
-        String sql = "SELECT * FROM T_BOOK WHERE BOOKNAME LIKE ? ORDER BY BOOKPRICE DESC";
+    public List<Student> search(String keyword) {
+        List<Student> list = new ArrayList<>();
+        String sql = "SELECT * FROM T_STUDENT WHERE stuName LIKE ? ORDER BY stuNo";
         try (Connection conn = DriverManager.getConnection(url, username, password);
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, "%" + keyword + "%");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Book b = new Book(
-                        rs.getInt("BOOK_ID"),
-                        rs.getString("BOOKNAME"),
-                        rs.getDouble("BOOKPRICE"),
-                        rs.getString("AUTHOR"),
-                        rs.getString("PUBLISHER")
+                Student s = new Student(
+                        rs.getString("stuNo"),
+                        rs.getString("stuName"),
+                        rs.getString("stuSex")
                 );
-                list.add(b);
+                list.add(s);
             }
             rs.close();
         } catch (SQLException e) {
@@ -74,20 +67,18 @@ public class BookDAO {
         return list;
     }
 
-    // 按ID查询
-    public Book findById(int id) {
-        String sql = "SELECT * FROM T_BOOK WHERE BOOK_ID=?";
+    // 按学号查询
+    public Student findByStuNo(String stuNo) {
+        String sql = "SELECT * FROM T_STUDENT WHERE stuNo=?";
         try (Connection conn = DriverManager.getConnection(url, username, password);
              PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setInt(1, id);
+            ps.setString(1, stuNo);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new Book(
-                        rs.getInt("BOOK_ID"),
-                        rs.getString("BOOKNAME"),
-                        rs.getDouble("BOOKPRICE"),
-                        rs.getString("AUTHOR"),
-                        rs.getString("PUBLISHER")
+                return new Student(
+                        rs.getString("stuNo"),
+                        rs.getString("stuName"),
+                        rs.getString("stuSex")
                 );
             }
         } catch (SQLException e) {
@@ -97,14 +88,13 @@ public class BookDAO {
     }
 
     // 新增
-    public boolean insert(Book b) {
-        String sql = "INSERT INTO T_BOOK (BOOKNAME, BOOKPRICE, AUTHOR, PUBLISHER) VALUES (?, ?, ?, ?)";
+    public boolean insert(Student s) {
+        String sql = "INSERT INTO T_STUDENT (stuNo, stuName, stuSex) VALUES (?, ?, ?)";
         try (Connection conn = DriverManager.getConnection(url, username, password);
              PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, b.getBookName());
-            ps.setDouble(2, b.getBookPrice());
-            ps.setString(3, b.getAuthor());
-            ps.setString(4, b.getPublisher());
+            ps.setString(1, s.getStuNo());
+            ps.setString(2, s.getStuName());
+            ps.setString(3, s.getStuSex());
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -113,15 +103,13 @@ public class BookDAO {
     }
 
     // 修改
-    public boolean update(Book b) {
-        String sql = "UPDATE T_BOOK SET BOOKNAME=?, BOOKPRICE=?, AUTHOR=?, PUBLISHER=? WHERE BOOK_ID=?";
+    public boolean update(Student s) {
+        String sql = "UPDATE T_STUDENT SET stuName=?, stuSex=? WHERE stuNo=?";
         try (Connection conn = DriverManager.getConnection(url, username, password);
              PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, b.getBookName());
-            ps.setDouble(2, b.getBookPrice());
-            ps.setString(3, b.getAuthor());
-            ps.setString(4, b.getPublisher());
-            ps.setInt(5, b.getBookId());
+            ps.setString(1, s.getStuName());
+            ps.setString(2, s.getStuSex());
+            ps.setString(3, s.getStuNo());
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -130,11 +118,11 @@ public class BookDAO {
     }
 
     // 删除
-    public boolean delete(int id) {
-        String sql = "DELETE FROM T_BOOK WHERE BOOK_ID=?";
+    public boolean delete(String stuNo) {
+        String sql = "DELETE FROM T_STUDENT WHERE stuNo=?";
         try (Connection conn = DriverManager.getConnection(url, username, password);
              PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setInt(1, id);
+            ps.setString(1, stuNo);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();

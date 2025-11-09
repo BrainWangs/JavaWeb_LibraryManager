@@ -5,7 +5,7 @@
                 <h3 style="color:#3498db;">Contact Us</h3>
                 <p>Address: No.88, Technology Park, Haidian District, Beijing</p>
                 <p>Phone: 010-12345678</p>
-                <p>Email: contact@bookstore.com</p>
+                <p>Email: contact@studentmanager.com</p>
             </div>
             <div>
                 <h3 style="color:#3498db;">Customer Service</h3>
@@ -13,9 +13,9 @@
                 <p>Business Hours: 9:00 AM - 6:00 PM</p>
             </div>
             <div>
-                <h3 style="color:#3498db;">About Bookstore</h3>
-                <p>Dedicated to providing readers with the highest quality book services</p>
-                <p>© 2025 Online Bookstore System. All Rights Reserved.</p>
+                <h3 style="color:#3498db;">About Student Manager</h3>
+                <p>Dedicated to providing schools with the highest quality student management services</p>
+                <p>© 2025 Student Management System. All Rights Reserved.</p>
             </div>
         </div>
     </div>

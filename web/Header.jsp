@@ -57,13 +57,13 @@
 <header class="header">
     <div class="container">
         <div class="logo">
-            <h1>📚 网上书城系统</h1>
+            <h1>📚 学生管理系统</h1>
         </div>
         <nav class="nav">
             <ul>
-                <li><a href="bookQuery.jsp">首页</a></li>
-                <li><a href="addBook.jsp">添加图书</a></li>
-                <li><a href="#">热门图书</a></li>
+                <li><a href="studentQuery.jsp">首页</a></li>
+                <li><a href="AddStudent.jsp">添加学生</a></li>
+                <li><a href="#">学生列表</a></li>
                 <li><a href="#">关于我们</a></li>
             </ul>
         </nav>
