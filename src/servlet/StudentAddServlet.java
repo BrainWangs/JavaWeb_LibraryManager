@@ -28,7 +28,7 @@ public class StudentAddServlet extends HttpServlet {
         boolean success = dao.insert(student);
 
         if (success) {
-            response.sendRedirect("studentQuery.jsp?msg=add_success");
+            response.sendRedirect("StudentQuery.jsp?msg=add_success");
         } else {
             response.getWriter().println("<script>alert('添加失败，请重试');history.back();</script>");
         }

@@ -25,7 +25,7 @@ public class StudentEditServlet extends HttpServlet {
         boolean success = dao.update(student);
 
         if (success) {
-            response.sendRedirect("studentQuery.jsp?msg=edit_success");
+            response.sendRedirect("StudentQuery.jsp?msg=edit_success");
         } else {
             response.getWriter().println("<script>alert('更新失败，请重试');history.back();</script>");
         }

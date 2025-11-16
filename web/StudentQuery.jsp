@@ -19,7 +19,7 @@
         <h2 class="page-title">学生信息查询</h2>
 
         <!-- 查询表单 -->
-        <form class="search-form" method="get" action="studentQuery.jsp"
+        <form class="search-form" method="get" action="StudentQuery.jsp"
               style="background:white;padding:1.5rem;border-radius:10px;margin-bottom:2rem;">
             <label for="keyword">学生姓名：</label>
             <input type="text" id="keyword" name="keyword"

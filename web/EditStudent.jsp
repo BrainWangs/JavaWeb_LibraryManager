@@ -29,7 +29,7 @@
             <input type="text" name="stuSex" value="<%= student.getStuSex() %>" required><br><br>
 
             <button type="submit" class="btn">更新</button>
-            <a href="studentQuery.jsp" class="btn" style="background:#95a5a6;">返回</a>
+            <a href="StudentQuery.jsp" class="btn" style="background:#95a5a6;">返回</a>
         </form>
         <% } else { %>
         <p style="text-align:center;color:#e74c3c;">未找到对应学生记录！</p>

@@ -11,7 +11,7 @@
             <label>姓名：</label><input type="text" name="stuName" required><br><br>
             <label>性别：</label><input type="text" name="stuSex"><br><br>
             <button type="submit" class="btn">提交</button>
-            <a href="studentQuery.jsp" class="btn" style="background:#95a5a6;">返回</a>
+            <a href="StudentQuery.jsp" class="btn" style="background:#95a5a6;">返回</a>
         </form>
     </div>
 </main>

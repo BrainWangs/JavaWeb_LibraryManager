@@ -61,7 +61,7 @@
         </div>
         <nav class="nav">
             <ul>
-                <li><a href="studentQuery.jsp">首页</a></li>
+                <li><a href="StudentQuery.jsp">首页</a></li>
                 <li><a href="AddStudent.jsp">添加学生</a></li>
                 <li><a href="#">学生列表</a></li>
                 <li><a href="#">关于我们</a></li>

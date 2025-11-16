@@ -16,7 +16,7 @@ public class StudentDeleteServlet extends HttpServlet {
 
         String stuNo = request.getParameter("stuNo");
         if (stuNo == null) {
-            response.sendRedirect("studentQuery.jsp");
+            response.sendRedirect("StudentQuery.jsp");
             return;
         }
 
@@ -24,7 +24,7 @@ public class StudentDeleteServlet extends HttpServlet {
         boolean success = dao.delete(stuNo);
 
         if (success) {
-            response.sendRedirect("studentQuery.jsp?msg=delete_success");
+            response.sendRedirect("StudentQuery.jsp?msg=delete_success");
         } else {
             response.getWriter().println("<script>alert('删除失败，请重试');history.back();</script>");
         }
