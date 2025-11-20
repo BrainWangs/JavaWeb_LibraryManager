@@ -6,11 +6,14 @@
 <%
     String keyword = request.getParameter("keyword");
     boolean hasSearched = (keyword != null && !keyword.trim().isEmpty());
-    List<Student> students = new ArrayList<>();
+
+    StudentDAO dao = new StudentDAO();
+    List<Student> students;
 
     if (hasSearched) {
-        StudentDAO dao = new StudentDAO();
         students = dao.search(keyword);
+    } else {
+        students = dao.findAll(); // 默认显示全部
     }
 %>
 
@@ -30,11 +33,10 @@
             <a href="AddStudent.jsp" class="btn" style="background:#27ae60;">添加学生</a>
         </form>
 
-        <% if (hasSearched) { %>
+        <% if (students == null || students.isEmpty()) { %>
+        <div style="text-align:center;padding:2rem;">暂无学生信息</div>
+        <% } else { %>
         <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
-            <% if (students.isEmpty()) { %>
-            <div style="text-align:center;padding:2rem;">未找到匹配的学生。</div>
-            <% } else { %>
             <table style="width:100%;border-collapse:collapse;">
                 <thead style="background:#34495e;color:white;">
                 <tr>
@@ -45,7 +47,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                <%--使用封装的Student类进行操作--%>
                 <% for (Student s : students) { %>
                 <tr>
                     <td style="padding:1rem;"><%= s.getStuNo() %></td>
@@ -61,11 +62,6 @@
                 <% } %>
                 </tbody>
             </table>
-            <% } %>
-        </div>
-        <% } else { %>
-        <div style="text-align:center;padding:3rem;color:#7f8c8d;">
-            🔍 请输入学生姓名进行查询
         </div>
         <% } %>
     </div>
