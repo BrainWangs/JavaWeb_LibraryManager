@@ -1,19 +1,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="dao.*, vo.*, java.util.*" %>
+<%@ page import="vo.*, java.util.*" %>
 
 <%@ include file="Header.jsp" %>
 
 <%
-    String keyword = request.getParameter("keyword");
-    boolean hasSearched = (keyword != null && !keyword.trim().isEmpty());
-
-    StudentDAO dao = new StudentDAO();
-    List<Student> students;
-
-    if (hasSearched) {
-        students = dao.search(keyword);
-    } else {
-        students = dao.findAll(); // 默认显示全部
+    // 从 request 获取数据
+    String keyword = (String) request.getAttribute("keyword");
+    List<Student> students = (List<Student>) request.getAttribute("students");
+    
+    // 如果没有传入students数据，重定向到Servlet获取数据
+    if (students == null) {
+        response.sendRedirect("StudentQueryServlet");
+        return;
     }
 %>
 
@@ -22,7 +20,7 @@
         <h2 class="page-title">学生信息查询</h2>
 
         <!-- 查询表单 -->
-        <form class="search-form" method="get" action="StudentQuery.jsp"
+        <form class="search-form" method="get" action="StudentQueryServlet"
               style="background:white;padding:1.5rem;border-radius:10px;margin-bottom:2rem;">
             <label for="keyword">学生姓名：</label>
             <input type="text" id="keyword" name="keyword"
@@ -34,7 +32,9 @@
         </form>
 
         <% if (students == null || students.isEmpty()) { %>
-        <div style="text-align:center;padding:2rem;">暂无学生信息</div>
+        <div style="text-align:center;padding:3rem;color:#7f8c8d;">
+            暂无学生信息。
+        </div>
         <% } else { %>
         <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
             <table style="width:100%;border-collapse:collapse;">

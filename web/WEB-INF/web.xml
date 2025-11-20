@@ -85,6 +85,16 @@
         <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
 
+    <!-- 学生查询控制器 -->
+    <servlet>
+        <servlet-name>StudentQueryServlet</servlet-name>
+        <servlet-class>servlet.StudentQueryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentQueryServlet</servlet-name>
+        <url-pattern>/StudentQueryServlet</url-pattern>
+    </servlet-mapping>
+
     <!-- 默认首页 -->
     <welcome-file-list>
         <welcome-file>Login.jsp</welcome-file>
