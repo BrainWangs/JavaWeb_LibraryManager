@@ -9,11 +9,11 @@
 
 1. 新建项目
 
-![](https://pic1.imgdb.cn/item/69049fae3203f7be00ba2fba.png) 
+![](https://pic1.imgdb.cn/item/69049fae3203f7be00ba2fba.png)
 
 2. 打开项目结构
 
-![](https://pic1.imgdb.cn/item/69049fe33203f7be00ba3208.png) 
+![](https://pic1.imgdb.cn/item/69049fe33203f7be00ba3208.png)
 
 3. 添加web模块
 
@@ -23,31 +23,39 @@
 
 4. 查看项目结构
 
-![](https://pic1.imgdb.cn/item/6904a1553203f7be00ba476f.png) 
+![](https://pic1.imgdb.cn/item/6904a1553203f7be00ba476f.png)
 
 5. 配置tomcat
 
 tomcat安装教程不再赘述 , 需要注意tomcat与jdk版本兼容问题 , `jdk1.8`使用`tomcat10`以下版本
 
-![](https://pic1.imgdb.cn/item/6904a1da3203f7be00ba4e0d.png) 
+![](https://pic1.imgdb.cn/item/6904a1da3203f7be00ba4e0d.png)
 
 如果你已经配置好了tomcat环境变量 , 这里idea会自动获取tomcat安装目录
 
 6. 运行配置
 
-![](https://pic1.imgdb.cn/item/6904a2b03203f7be00ba5566.png) 
+![](https://pic1.imgdb.cn/item/6904a2b03203f7be00ba5566.png)
 
-![](https://pic1.imgdb.cn/item/6904a35b3203f7be00ba59cd.png) 
+![](https://pic1.imgdb.cn/item/6904a35b3203f7be00ba59cd.png)
 
 7. 部署配置
 
-![](https://pic1.imgdb.cn/item/6904a3cf3203f7be00ba5c10.png) 
+![](https://pic1.imgdb.cn/item/6904a3cf3203f7be00ba5c10.png)
 
-![](https://pic1.imgdb.cn/item/6904a3cf3203f7be00ba5c0e.png) 
+![](https://pic1.imgdb.cn/item/6904a3cf3203f7be00ba5c0e.png)
 
 选择项目文件下刚才导入模块时创建的根目录web
 
----
+
+8. 更改默认输出目录
+
+由于idea默认输出class文件到`out`目录, 我们需要将class文件输出到`webapp`目录下, 否则tomcat无法找到class文件
+
+![](https://pic1.imgdb.cn/item/692d0ac21486afd2e4d3f42a.png)
+![](https://pic1.imgdb.cn/item/692d0b0c1486afd2e4d3f49e.png)
+
+
 
 到此基本配置完成, 可以正常运行了
 
@@ -55,6 +63,6 @@ tomcat安装教程不再赘述 , 需要注意tomcat与jdk版本兼容问题 , `j
 
 # 使用IDEA克隆项目
 
-![](https://pic1.imgdb.cn/item/6904a5083203f7be00ba6462.png) 
+![](https://pic1.imgdb.cn/item/6904a5083203f7be00ba6462.png)
 
 ![](https://pic1.imgdb.cn/item/6904a5083203f7be00ba6461.png) 
